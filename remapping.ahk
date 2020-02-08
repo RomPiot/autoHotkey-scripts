@@ -49,4 +49,9 @@ return
 Send ^s
 return
 
+; Next Search / ALT + D
+!d::
+Send ^d
+return
+
  
