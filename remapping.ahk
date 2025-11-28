@@ -1,57 +1,85 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#Requires AutoHotkey v2.0
 
-; Copy / ALT + C
-!c::
-Send ^c
-return
+; ----------------------------
+; ! = alt
+; ^ = ctrl
+; + = shift
+; # = win
+; ----------------------------
 
-; Past / ALT + V
-!v::
-Send ^v
-return
+; back : alt + z
+Alt & sc011:: Send("^z")
 
-; Cut / ALT + X
-!x::
-Send ^x
-return
+; forward : alt + e
+Alt & sc012:: Send("^+z")
 
-; Reload / ALT + R
-!r::
-Send ^r
-return
+; reload : alt + r
+Alt & sc013:: Send("^r")
 
-; Back / ALT + Z
-!z::
-Send ^z
-return
+; save : alt + s
+Alt & sc01F:: Send("^s")
 
-; Forward / ALT + E
-!e::
-Send ^y
-Send ^e
-return
+; search : alt + f
+Alt & sc021:: Send("^f")
 
-; Select all / ALT + A
-!a::
-Send ^a
-return
+; select all : alt + a
+Alt & sc010:: Send("^a")
 
-; Search / ALT + F
-!f::
-Send ^f
-return
+; copy : alt + c
+Alt & sc02E:: Send("^c")
 
-; Save / ALT + S
-!s::
-Send ^s
-return
+; paste : alt + v
+Alt & sc02F:: Send("^v")
 
-; Next Search / ALT + D
-!d::
-Send ^d
-return
+; cut : alt + x
+Alt & sc02D:: Send("^x")
 
- 
+; quote : ²
+sc029:: Send("{Text}``")
+
+; square symbol : ctrl + shift + ²
+^!sc029:: Send("²")
+
+; pipe : alt + ²
+Alt & sc029:: Send("|")
+
+; at symbol : ctrl + ²
+Ctrl & sc029:: Send("@")
+
+
+; backslash : alt + ^
+; !sc056:: Send("\")
+
+
+; bracket open : alt + ^
+Alt & sc027:: Send("{{}")
+
+; bracket close : alt + $
+Alt & sc028:: Send("{}}")
+
+; parenthesis open : alt + m
+Alt & sc01A:: Send("(")
+
+; ; parenthesis close : alt + ù
+Alt & sc01B:: Send(")")
+
+; array open : alt + :
+Alt & sc034:: Send("[")
+
+; array close : alt + !
+Alt & sc035:: Send("]")
+
+
+; > : alt + <
+Alt & sc032:: Send("<")
+
+; < : ctrl + >
+Alt & sc033:: Send(">")
+
+; - : <
+sc056:: Send("-")
+
+; _ : alt + <
+Alt & sc056:: Send("_")
+
+; to remap : \
